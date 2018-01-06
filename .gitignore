@@ -61,3 +61,4 @@ build/
 config/
 scripts/
 package-lock.json
+idea/
