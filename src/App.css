@@ -1,0 +1,57 @@
+body {
+    color:#F5F5F5;
+}
+.title {
+    /*height:100px;*/
+    /*background: #f00;*/
+    font-size: 3rem;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+.status {
+    /*color: white;*/
+    text-align: center;
+}
+.App {
+}
+
+.perf-cpu {
+    width:50%;
+    height:300px;
+    padding-top: 10px;
+}
+.perf-mem {
+    width:50%;
+    height:250px;
+}
+.perf {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+@media (max-width: 768px) {
+    .map {
+        height: 300px;
+        width: 100%;
+    }
+}
+@media (min-width: 768px) {
+    .map {
+        height: 600px;
+        width: 100%;
+    }
+}
+.flow-chart {
+    height: 300px;
+    width: 100%;
+}
+.foot{
+    margin-top: 10px;
+    border-top: #888 1px solid;
+    text-align: center;
+}
+.top-status {
+    border-bottom: #888 1px dashed;
+    margin-bottom: 10px;
+}
