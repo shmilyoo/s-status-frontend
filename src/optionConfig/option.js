@@ -1,11 +1,12 @@
 let chartTitleColor = '#aaa';
 
 export let mapOption = {
-  backgroundColor: 'rgba(255,255,255,0.05)',
+  // backgroundColor: 'rgba(255,255,255,0.05)',
   title: {
-    text: '在线地图',
+    text: '用户在线地图',
     // subtext: '数据纯属虚构',
     left: 'center',
+    top:10,
     textStyle: {
       color: chartTitleColor
     }

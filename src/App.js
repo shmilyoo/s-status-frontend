@@ -14,7 +14,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     // [服务器日期 GMT+8,cpu占比 float，内存占比 float，网卡进入流量 Kb/s，网卡出流量 Kb/s， 在线ip列表[('1.1.1.1','安徽'),...]
-    this.state = {dt: 0, cpu: 50, memory: 30, flowIn: 3260, flowOut: 1234, online: {},localDt:0}
+    this.state = {dt: 0, cpu: 0, memory: 0, flowIn: 0, flowOut: 0, online: {},localDt:0}
   }
 
   componentDidMount() {
