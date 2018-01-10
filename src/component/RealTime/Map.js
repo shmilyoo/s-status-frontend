@@ -1,30 +1,26 @@
 import React from 'react'
-import 'echarts/lib/chart/map'
 import {mapOption} from "../../optionConfig/option";
 import echarts from 'echarts/lib/echarts'
 import 'echarts/map/js/china' // 引入中国地图
 
 class Map extends React.Component {
 
-  // init = () => {
-  //   let option = mapOption;
-  //   this.map = echarts.init(this.id);
-  //   this.map.setOption(option);
-  //   window.onresize = () => {
-  //     this.map.resize();
-  //   }
-  // };
-
   componentDidMount() {
     let option = mapOption;
     this.map = echarts.init(this.id);
     this.map.setOption(option);
-    window.addEventListener('resize',() => {
-      this.map.resize();
-    })
+    window.addEventListener('resize',this.resize)
   }
 
-  shouldComponentUpdate(nextProps,nextState){
+  resize = ()=>{
+    this.map.resize();
+  };
+
+  componentWillUnmount(){
+    window.removeEventListener('resize',this.resize)
+  }
+
+  shouldComponentUpdate(nextProps){
     return nextProps.online !== this.props.online
   }
 

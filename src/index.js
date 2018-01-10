@@ -11,4 +11,5 @@ ReactDOM.render(
   </BrowserRouter>
   , document.getElementById('root')
 );
-registerServiceWorker();
+if(process.env.NODE_ENV === 'development')
+  registerServiceWorker();

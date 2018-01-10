@@ -1,6 +1,13 @@
 body {
     color:#F5F5F5;
 }
+#head {
+
+}
+#top-status {
+    border-bottom: #888 1px dashed;
+    margin-bottom: 10px;
+}
 .title {
     /*height:100px;*/
     /*background: #f00;*/
@@ -13,17 +20,41 @@ body {
     /*color: white;*/
     text-align: center;
 }
-.App {
+#root{
+    height:100%;
+}
+#App {
+    display:flex;
+    /*align-items: center;*/
+    flex-direction: column;
+    height:100%;
+    border:1px solid black;
+}
+#main {
+    flex:1;
+    /*height: 100%;*/
+}
+#foot{
+    margin-top: 10px;
+    border-top: #888 1px solid;
+    text-align: center;
+    width:91.7%;
+    height:100px;
+    align-self: center;
+    /*flex:1;*/
 }
 
 .perf-cpu {
-    width:50%;
+    /*width:50%;*/
     height:300px;
-    padding-top: 10px;
+    /*border:1px black solid;*/
+    flex:0 0 50%;
 }
 .perf-mem {
-    width:50%;
+    /*width:50%;*/
     height:250px;
+    /*border:1px black solid;*/
+    flex:0 0 50%;
 }
 .perf {
     display: flex;
@@ -45,13 +76,5 @@ body {
 .flow-chart {
     height: 300px;
     width: 100%;
-}
-.foot{
-    margin-top: 10px;
-    border-top: #888 1px solid;
-    text-align: center;
-}
-.top-status {
-    border-bottom: #888 1px dashed;
-    margin-bottom: 10px;
+    /*border:1px black solid;*/
 }

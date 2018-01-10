@@ -5,30 +5,30 @@ import echarts from "echarts/lib/echarts";
 
 class Performance extends React.Component {
 
+  resize = ()=>{
+    this.cpuChart.resize();
+    this.memChart.resize();
+  };
+
+  componentWillUnmount(){
+    window.removeEventListener('resize',this.resize)
+  }
 
   componentDidMount() {
     this.cpuChart = echarts.init(this.cpu);
     this.memChart = echarts.init(this.mem);
     this.cpuChart.setOption(cpuOption);
     this.memChart.setOption(memOption);
-    window.addEventListener('resize',() => {
-      this.cpuChart.resize();
-      this.memChart.resize();
-    })
+    window.addEventListener('resize',this.resize)
   }
 
-  shouldComponentUpdate(nextProps,nextState){
+  shouldComponentUpdate(nextProps){
     return nextProps.cpu !== this.props.cpu || nextProps.memory !== this.props.memory
   }
 
   componentDidUpdate() {
     this.cpuChart.setOption({series:[{data: [{value: this.props.cpu, name: 'CPU占用率'}]}]})
     this.memChart.setOption({series:[{data: [{value: this.props.memory, name: '内存占用率'}]}]})
-    // let data = []
-    // for (let key of Object.keys(this.props.online))
-    //   data.push({name:key,value:this.props.online[key]})
-    // data.push({name: '南海诸岛', value: NaN})
-    // this.map.setOption({series:{data:data}});
   }
 
   render() {

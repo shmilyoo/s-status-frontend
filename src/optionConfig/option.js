@@ -58,6 +58,9 @@ export let mapOption = {
 };
 
 export let cpuOption = {
+  grid:{
+    top:'10%'
+  },
   series: [
     {
       name: 'CPU占用率',
@@ -154,6 +157,10 @@ export let flowOption = {
   tooltip : {
     trigger: 'axis'
   },
+  grid:{
+    left:70,
+    right:70
+  },
   legend: {
     data:['cpu','内存','速率in','速率out'],
     textStyle:{
@@ -165,7 +172,9 @@ export let flowOption = {
       type : 'category',
       data : [],
       axisLabel : {
-        color:chartTitleColor
+        color:chartTitleColor,
+        interval:0,  // 强制显示所有x轴label
+        // rotate:45
       },
       nameTextStyle: {
         color:chartTitleColor
@@ -186,9 +195,9 @@ export let flowOption = {
   yAxis : [
     {
       type : 'value',
-      name : '速率(▲◆)',
+      name : '速率(kb/s)',
       axisLabel : {
-        formatter: '{value} kb/s',
+        formatter: '{value}',
         color:chartTitleColor
       },
       nameTextStyle: {
@@ -205,10 +214,10 @@ export let flowOption = {
     },
     {
       type : 'value',
-      name : '百分比(●■)',
+      name : '性能(%)',
       max:100,
       axisLabel : {
-        formatter: '{value} %',
+        formatter: '{value}',
         color:chartTitleColor
       },
       nameTextStyle: {
@@ -261,6 +270,6 @@ export let flowOption = {
 
 
 export let config = {
-  socketServerIP: 'localhost',
+  socketServerIP: process.env.NODE_ENV==='production'?'127.0.0.1':'localhost',
   socketServerPort: 5000,
 };

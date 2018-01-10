@@ -10,10 +10,10 @@ class RealTime extends React.Component {
     return (
       <div>
         <Row gutter={10}>
-          <Col xs={24} sm={24} md={12}>
+          <Col xs={24} sm={24} md={11}>
             <Map online={this.props.online}/>
           </Col>
-          <Col xs={24} sm={24} md={12}>
+          <Col xs={24} sm={24} md={13}>
             <Performance cpu={this.props.cpu} memory={this.props.memory}/>
             <Flow dt={this.props.dt} flowIn={this.props.flowIn} flowOut={this.props.flowOut} cpu={this.props.cpu} memory={this.props.memory} />
           </Col>
