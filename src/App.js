@@ -95,7 +95,7 @@ class App extends Component {
         </div>
 
         <div id='foot'>
-          服务器时间：{this.state.dt ? moment.unix(this.state.localDt).add(moment().utcOffset(), 'm').format('YYYY年M月D日 HH:mm:ss') : ''}
+          服务器时间：{this.state.dt ? moment.unix(this.state.localDt).format('YYYY年M月D日 HH:mm:ss') : ''}
         </div>
       </div>
     );

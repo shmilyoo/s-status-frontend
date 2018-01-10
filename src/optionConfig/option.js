@@ -158,8 +158,8 @@ export let flowOption = {
     trigger: 'axis'
   },
   grid:{
-    left:70,
-    right:70
+    left:30,
+    right:30
   },
   legend: {
     data:['cpu','内存','速率in','速率out'],

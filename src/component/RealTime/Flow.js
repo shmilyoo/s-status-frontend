@@ -37,7 +37,7 @@ class Flow extends React.Component {
     let option = this.flowChart.getOption();
     if(option.xAxis[0].data.length >=this.xAxisIntervalNum)
       option.xAxis[0].data.shift();
-    option.xAxis[0].data.push(moment.unix(this.props.dt).add(moment().utcOffset(), 'm').format('HH:mm:ss'));
+    option.xAxis[0].data.push(moment.unix(this.props.dt).format('HH:mm:ss'));
     this.updateData(option.series[0].data,this.props.cpu);
     this.updateData(option.series[1].data,this.props.memory);
     this.updateData(option.series[2].data,this.props.flowIn);
