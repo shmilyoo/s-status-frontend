@@ -4,11 +4,11 @@ import {Tabs, DatePicker, LocaleProvider, Button} from 'antd'
 import HistoryChart from './HistoryChart'
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 import moment from 'moment'
-import 'moment/locale/zh-cn';
-import 'echarts/lib/component/grid'
-import 'echarts/lib/component/tooltip'
-import 'echarts/lib/component/title'
-import 'echarts/lib/component/dataZoom'
+// import 'moment/locale/zh-cn';
+// import 'echarts/lib/component/grid'
+// import 'echarts/lib/component/tooltip'
+// import 'echarts/lib/component/title'
+// import 'echarts/lib/component/dataZoom'
 
 moment.locale('zh-cn');
 

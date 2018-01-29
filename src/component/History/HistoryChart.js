@@ -1,10 +1,11 @@
 import React from 'react'
 import {message} from 'antd'
 import {getHistoryChartOption, config} from '../../optionConfig/option'
-import echarts from "echarts/lib/echarts";
-import 'echarts/lib/chart/line'
+// import echarts from "echarts/lib/echarts";
+// import 'echarts/lib/chart/line'
 import moment from 'moment'
 import axios from 'axios'
+import echarts from '../../echarts'
 
 class HistoryChart extends React.Component {
   constructor(props) {
