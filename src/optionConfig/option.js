@@ -332,7 +332,7 @@ export function getHistoryChartOption(yAxisName,seriesName) {
 
 
 export let config = {
-  url:process.env.NODE_ENV === 'production' ? '127.0.0.1' : 'localhost' + ':' + 5000,
+  url:process.env.NODE_ENV === 'production' ? '127.0.0.1:5000' : 'localhost:5000',
   numPerRequest:17280,  // 17280*5   为一天的总秒数，配置为一次请求最多获取一天的数据
   showInScreen:50,
 };
