@@ -1,9 +1,9 @@
 import React from 'react'
 import {mapOption} from "../../optionConfig/option";
-// import echarts from 'echarts/lib/echarts'
-// import 'echarts/lib/chart/map'
+import echarts from 'echarts/lib/echarts'
+import 'echarts/lib/chart/map'
 import 'echarts/map/js/china' // 引入中国地图
-import echarts from '../../echarts'
+// import echarts from '../../echarts'
 
 class Map extends React.Component {
 
