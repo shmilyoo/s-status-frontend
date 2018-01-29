@@ -1,7 +1,7 @@
 import React from 'react'
 import {cpuOption, memOption,} from '../../optionConfig/option'
 import echarts from "echarts/lib/echarts";
-// import 'echarts/lib/chart/gauge'
+import 'echarts/lib/chart/gauge'
 
 class Performance extends React.Component {
 

@@ -19,6 +19,11 @@ body {
 .status {
     /*color: white;*/
     text-align: center;
+    color:#F5F5F5;
+}
+.status span{
+    display:inline-block;
+    color:#F5F5F5;
 }
 #root{
     height:100%;
@@ -77,4 +82,23 @@ body {
     height: 300px;
     width: 100%;
     /*border:1px black solid;*/
+}
+#datePickerArea {
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+#datePickerArea label {
+    font-size: 1.3em;
+}
+.btnSearch {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.ant-tabs-tab{
+    color: #F5F5F5;
+}
+.history-chart{
+    width:100%;
+    height:500px;
 }

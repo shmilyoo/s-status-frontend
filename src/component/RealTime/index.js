@@ -3,8 +3,20 @@ import Map from './Map'
 import Performance from "./Performance";
 import Flow from "./Flow";
 import {Row, Col} from 'antd'
+import 'echarts/lib/component/grid'
+import 'echarts/lib/component/tooltip'
+import 'echarts/lib/component/title'
 
 class RealTime extends React.Component {
+
+  changeTitle = (title)=>{
+    this.props.onTitleChange(title)
+  }
+
+
+  componentDidMount() {
+    this.changeTitle('服务实时状态监视')
+  }
 
   render() {
     return (

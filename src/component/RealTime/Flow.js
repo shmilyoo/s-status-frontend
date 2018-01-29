@@ -2,6 +2,7 @@ import React from 'react'
 import {flowOption} from '../../optionConfig/option'
 import echarts from "echarts/lib/echarts";
 import moment from 'moment'
+import 'echarts/lib/chart/line'
 
 class Flow extends React.Component {
   constructor(props){

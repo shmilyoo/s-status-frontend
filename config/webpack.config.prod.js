@@ -13,6 +13,10 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
 
+const fs = require('fs');
+const lessToJs = require('less-vars-to-js');
+const themeVariables = lessToJs(fs.readFileSync(path.join(paths.appSrc, './ant-theme-vars.less'), 'utf8'));
+
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
 const publicPath = paths.servedPath;
@@ -46,6 +50,7 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
     { publicPath: Array(cssFilename.split('/').length).join('../') }
   : {};
 
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
 // The development configuration is different and lives in a separate file.
@@ -56,7 +61,11 @@ module.exports = {
   // You can exclude the *.map files from the build during deployment.
   devtool: shouldUseSourceMap ? 'source-map' : false,
   // In production, we only want to load the polyfills and the app code.
-  entry: [require.resolve('./polyfills'), paths.appIndexJs],
+  // entry: [require.resolve('./polyfills'), paths.appIndexJs],
+  entry: {
+    main:[require.resolve('./polyfills'), paths.appIndexJs],
+    vendor:['react','react-router-dom','react-dom'],
+  },
   output: {
     // The build folder.
     path: paths.appBuild,
@@ -90,7 +99,7 @@ module.exports = {
     // for React Native Web.
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
     alias: {
-      
+
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
@@ -121,7 +130,7 @@ module.exports = {
             options: {
               formatter: eslintFormatter,
               eslintPath: require.resolve('eslint'),
-              
+
             },
             loader: require.resolve('eslint-loader'),
           },
@@ -149,10 +158,11 @@ module.exports = {
             include: paths.appSrc,
             loader: require.resolve('babel-loader'),
             options: {
-              
               compact: true,
               // add antd lib
-              plugins: [["import", {"libraryName": "antd", "style": true}]]
+              plugins: [
+                ["import", {"libraryName": "antd", "style": true}]
+              ]
             },
           },
           // The notation here is somewhat confusing.
@@ -208,7 +218,8 @@ module.exports = {
                       },
                     },
                     {
-                      loader: require.resolve('less-loader')
+                      loader: require.resolve('less-loader'),
+                      options:{modifyVars:themeVariables}
                     }
                   ],
                 },
@@ -239,6 +250,12 @@ module.exports = {
     ],
   },
   plugins: [
+    new BundleAnalyzerPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor'}),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "runtime",
+      minChunks: Infinity
+    }),
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
@@ -279,7 +296,7 @@ module.exports = {
       },
       mangle: {
         safari10: true,
-      },        
+      },
       output: {
         comments: false,
         // Turned on because emoji and regex is not minified properly using default
