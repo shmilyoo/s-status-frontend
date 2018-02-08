@@ -103,7 +103,7 @@ class HistoryChart extends React.Component {
 
   getData = (start, end) => {
     this.isFetching = true;
-    axios.get(`/history/${this.props.chartName}`, {
+    axios.get(`/api/history/${this.props.chartName}`, {
       params: {
         start,
         end

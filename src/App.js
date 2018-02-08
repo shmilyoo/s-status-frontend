@@ -10,7 +10,7 @@ import {config} from './optionConfig/option'
 import moment from 'moment'
 import asyncComponent from './component/AsyncComponent'
 
-const AsyncHistory = asyncComponent(()=>import('./component/History'))
+const AsyncHistory = asyncComponent(()=>import(/* webpackChunkName: "history" */ './component/History'))
 // const AsyncRealTime = asyncComponent(()=>import('./component/RealTime'))
 
 class App extends React.Component {
